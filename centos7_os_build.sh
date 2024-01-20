@@ -22,20 +22,20 @@ sudo systemctl start iscsid
 sudo systemctl enable iscsid
 sudo systemctl stop firewalld
 sudo systemctl disable firewalld
-yum clean all
+sudo yum clean all
 
 echo "mounting the nfs share"
 echo "+++++++++++++++++++++++"
 
-mkdir -p /nfsshare
-mount -t nfs 192.168.0.10:/nfsshare /nfsshare
+sudo mkdir -p /nfsshare
+sudo mount -t nfs 192.168.0.10:/nfsshare /nfsshare
 df -kh
 
 echo "192.168.0.10:/nfsshare /nfsshare  nfs 0 0"  >> /etc/fstab
 
 echo "setting the hostnames"
 echo "+++++++++++++++++++++++"
-sh /tmp/CENTOS7_OS_POST_BUILD/configure_hostname.sh
+sudo sh /tmp/CENTOS7_OS_POST_BUILD/configure_hostname.sh
 
 echo "=========================================================="
 echo "server build  ${HOSTNAME}.${DOMAIN_NAME} is completed"
