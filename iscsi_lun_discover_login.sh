@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Discover iSCSI targets
-sudo iscsiadm --mode discovery --type sendtargets --portal <TARGET_PORTAL_IP>
+sudo iscsiadm --mode discovery --type sendtargets --portal sdsan01.scs.com
 
 targets=$(iscsiadm --mode node | awk '{print $2}')
 
