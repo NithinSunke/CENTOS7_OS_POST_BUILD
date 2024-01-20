@@ -13,9 +13,9 @@ echo "installing os packages"
 echo "+++++++++++++++++++++++"
 
 sudo sh  /tmp/CENTOS7_OS_POST_BUILD/install_os_packages.sh
-systemctl start nfs-server.service
-systemctl enable nfs-server.service
-systemctl status nfs-server.service
+sudo systemctl start nfs-server.service
+sudo systemctl enable nfs-server.service
+sudo systemctl status nfs-server.service
 
 sudo yum -y install iscsi-initiator-utils
 sudo systemctl start iscsid

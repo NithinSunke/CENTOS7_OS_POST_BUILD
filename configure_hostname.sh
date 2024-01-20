@@ -1,4 +1,4 @@
-.  /tmp/esxi_vagrant_centos8/config/install_env.sh
+.  /tmp/CENTOS7_OS_POST_BUILD/install_env.sh
 
 echo "******************************************************************************"
 echo "Set Hostname." `date`
