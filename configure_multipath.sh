@@ -10,7 +10,6 @@ sudo cp /etc/multipath.conf /etc/multipath.conf.bak
 sudo cat << EOF > /etc/multipath.conf
 defaults {
     user_friendly_names yes
-    find_multipaths yes
 }
 
 blacklist {
