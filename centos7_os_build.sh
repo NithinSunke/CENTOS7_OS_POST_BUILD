@@ -1,18 +1,18 @@
 echo "Centos 7 Os build started........"
 
 cd /tmp
-git clone https://github.com/NithinSunke/vsphere_linux_os_build.git
+git clone https://github.com/NithinSunke/CENTOS7_OS_POST_BUILD.git
 cd /tmp
 ls
-cat  /tmp/vsphere_linux_os_build/config/install_env.sh  > /tmp/ZFS_BUILD/install_env.sh
+cat  /tmp/vsphere_linux_os_build/config/install_env.sh  > /tmp/CENTOS7_OS_POST_BUILD/install_env.sh
 
 
-.  /tmp/ZFS_BUILD/install_env.sh
+.   /tmp/CENTOS7_OS_POST_BUILD/install_env.sh
 
 echo "installing os packages"
 echo "+++++++++++++++++++++++"
 
-sudo sh /tmp/ZFS_BUILD/install_os_packages.sh
+sudo sh  /tmp/CENTOS7_OS_POST_BUILD/install_os_packages.sh
 systemctl start nfs-server.service
 systemctl enable nfs-server.service
 systemctl status nfs-server.service
@@ -35,7 +35,7 @@ echo "192.168.0.10:/nfsshare /nfsshare  nfs 0 0"  >> /etc/fstab
 
 echo "setting the hostnames"
 echo "+++++++++++++++++++++++"
-sh /tmp/ZFS_BUILD/configure_hostname.sh
+sh /tmp/CENTOS7_OS_POST_BUILD/configure_hostname.sh
 
 echo "=========================================================="
 echo "server build  ${HOSTNAME}.${DOMAIN_NAME} is completed"
