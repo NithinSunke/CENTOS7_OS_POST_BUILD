@@ -41,4 +41,14 @@ echo "=========================================================="
 echo "server build  ${HOSTNAME}.${DOMAIN_NAME} is completed"
 echo "=========================================================="
 
+sudo cp /tmp/CENTOS7_OS_POST_BUILD/iscsi-auto-login.service  /etc/systemd/system/iscsi-auto-login.service
+
+sudo systemctl daemon-reload
+sudo systemctl enable iscsi-auto-login.service
+sudo reboot
+
+
+
+
+
 echo "Centos 7 os build completd........"
