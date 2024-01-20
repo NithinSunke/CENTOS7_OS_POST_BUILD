@@ -1,7 +1,7 @@
 echo "Centos 7 Os build started........"
 
 cd /tmp
-git clone https://github.com/NithinSunke/CENTOS7_OS_POST_BUILD.git
+git clone https://github.com/NithinSunke/vsphere_linux_os_build.git
 cd /tmp
 ls
 cat  /tmp/vsphere_linux_os_build/config/install_env.sh  > /tmp/CENTOS7_OS_POST_BUILD/install_env.sh
