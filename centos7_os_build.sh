@@ -31,7 +31,7 @@ sudo mkdir -p /nfsshare
 sudo mount -t nfs 192.168.0.10:/nfsshare /nfsshare
 df -kh
 
-echo "192.168.0.10:/nfsshare /nfsshare  nfs 0 0"  >> /etc/fstab
+echo "192.168.0.10:/nfsshare /nfsshare  nfs defaults 0 0"  >> /etc/fstab
 
 echo "setting the hostnames"
 echo "+++++++++++++++++++++++"
