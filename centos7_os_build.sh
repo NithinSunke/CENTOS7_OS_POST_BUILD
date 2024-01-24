@@ -41,6 +41,7 @@ echo "=========================================================="
 echo "server build  ${HOSTNAME}.${DOMAIN_NAME} is completed"
 echo "=========================================================="
 
+sudo sh /tmp/CENTOS7_OS_POST_BUILD/iscsi_lun_discover_login.sh
 sudo cp /tmp/CENTOS7_OS_POST_BUILD/iscsi-auto-login.service  /etc/systemd/system/iscsi-auto-login.service
 
 sudo systemctl daemon-reload
