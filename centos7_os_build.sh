@@ -47,4 +47,6 @@ sudo cp /tmp/CENTOS7_OS_POST_BUILD/iscsi-auto-login.service  /etc/systemd/system
 sudo systemctl daemon-reload
 sudo systemctl enable iscsi-auto-login.service
 
+sudo sh /tmp/CENTOS7_OS_POST_BUILD/configure_multipath.sh
+
 echo "Centos 7 os build completd........"
