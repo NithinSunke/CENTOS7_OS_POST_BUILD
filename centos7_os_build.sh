@@ -38,8 +38,8 @@ echo "+++++++++++++++++++++++"
 sudo sh /tmp/CENTOS7_OS_POST_BUILD/configure_hostname.sh
 
 sh /tmp/CENTOS7_OS_POST_BUILD/env.sh
-echo "sudo sed -i "s/^\(InitiatorName=\).*/\1${new_initiator_name}/" /etc/iscsi/initiatorname.iscsi"
-sudo sed -i "s/^\(InitiatorName=\).*/\1${new_initiator_name}/" /etc/iscsi/initiatorname.iscsi
+echo "sudo sed -i "s/^\(InitiatorName=\).*/\1$iqn.1994-05.com.scs:sddoc01/" /etc/iscsi/initiatorname.iscsi"
+sudo sed -i "s/^\(InitiatorName=\).*/\1iqn.1994-05.com.scs:sddoc01/" /etc/iscsi/initiatorname.iscsi
 
 echo "=========================================================="
 echo "server build  ${HOSTNAME}.${DOMAIN_NAME} is completed"
