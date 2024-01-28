@@ -38,6 +38,7 @@ echo "+++++++++++++++++++++++"
 sudo sh /tmp/CENTOS7_OS_POST_BUILD/configure_hostname.sh
 
 sh /tmp/CENTOS7_OS_POST_BUILD/env.sh
+echo "sudo sed -i "s/^\(InitiatorName=\).*/\1${new_initiator_name}/" /etc/iscsi/initiatorname.iscsi"
 sudo sed -i "s/^\(InitiatorName=\).*/\1${new_initiator_name}/" /etc/iscsi/initiatorname.iscsi
 
 echo "=========================================================="
