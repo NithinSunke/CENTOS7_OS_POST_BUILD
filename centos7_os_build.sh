@@ -55,6 +55,6 @@ sudo systemctl daemon-reload
 sudo systemctl enable iscsi-auto-login.service
 
 sudo sh /tmp/CENTOS7_OS_POST_BUILD/configure_multipath.sh
-sudo sh /tmp/CENTOS7_OS_POST_BUILD/multipath_names.sh
+sudo sh /tmp/CENTOS7_OS_POST_BUILD/multipath_names.sh           
 
 echo "Centos 7 os build completd........"

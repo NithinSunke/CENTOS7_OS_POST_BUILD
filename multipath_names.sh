@@ -1,27 +1,23 @@
 #!/bin/bash
 
-# Specify the multipath disk names you want to add
-MULTIPATH_DISKS=("dockerfs")
+# Specify the multipath device names
+multipath_devices=("dockerfs" "mpath2" )
 
-# Specify the path to the multipath configuration file
-MULTIPATH_CONFIG_FILE="/etc/multipath.conf"
+# Specify the WWIDs (World Wide Identifiers) for the multipath devices
+wwids=("3600140554635325d7904feaad638e6bb" "wwid3")
 
-# Check if the configuration file exists, create it if not
-if [ ! -e "$MULTIPATH_CONFIG_FILE" ]; then
-    touch "$MULTIPATH_CONFIG_FILE"
-fi
+# Specify other multipath settings as needed
 
-# Loop through each multipath disk name and add it to the configuration file
-for DISK_NAME in "${MULTIPATH_DISKS[@]}"; do
-    # Check if the disk name already exists in the configuration file
-    if ! grep -q "$DISK_NAME" "$MULTIPATH_CONFIG_FILE"; then
-        # Append the disk name to the configuration file
-        echo "multipath {" >> "$MULTIPATH_CONFIG_FILE"
-        echo "    wwid $DISK_NAME" >> "$MULTIPATH_CONFIG_FILE"
-        echo "}" >> "$MULTIPATH_CONFIG_FILE"
-        echo >> "$MULTIPATH_CONFIG_FILE"  # Add a blank line for separation
-        echo "Added $DISK_NAME to $MULTIPATH_CONFIG_FILE"
-    else
-        echo "$DISK_NAME already exists in $MULTIPATH_CONFIG_FILE"
-    fi
+# Loop through the devices and append configuration to /etc/multipath.conf
+for ((i=0; i<${#multipath_devices[@]}; i++)); do
+    echo "multipaths {
+    multipath {
+    wwid ${wwids[i]}
+    alias ${multipath_devices[i]}
+    path_grouping_policy $path_group_policy
+  }
+}" >> /etc/multipath.conf
 done
+
+# Reload or restart the multipath service to apply changes
+systemctl restart multipathd
