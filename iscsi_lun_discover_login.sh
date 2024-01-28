@@ -1,7 +1,8 @@
 #!/bin/bash
 
+sh /tmp/CENTOS7_OS_POST_BUILD/env.sh
 # Discover iSCSI targets
-sudo iscsiadm --mode discovery --type sendtargets --portal mylab.scs.com
+sudo iscsiadm --mode discovery --type sendtargets --portal ${ISCSI_HOST}
 
 targets=$(iscsiadm --mode node | awk '{print $2}')
 
