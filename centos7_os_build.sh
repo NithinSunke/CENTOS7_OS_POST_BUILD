@@ -37,6 +37,9 @@ echo "setting the hostnames"
 echo "+++++++++++++++++++++++"
 sudo sh /tmp/CENTOS7_OS_POST_BUILD/configure_hostname.sh
 
+sh /tmp/CENTOS7_OS_POST_BUILD/env.sh
+sudo sed -i "s/^\(InitiatorName=\).*/\1${new_initiator_name}/" /etc/iscsi/initiatorname.iscsi
+
 echo "=========================================================="
 echo "server build  ${HOSTNAME}.${DOMAIN_NAME} is completed"
 echo "=========================================================="
@@ -44,8 +47,7 @@ echo "=========================================================="
 sudo sh /tmp/CENTOS7_OS_POST_BUILD/iscsi_lun_discover_login.sh
 sudo cp /tmp/CENTOS7_OS_POST_BUILD/iscsi-auto-login.service  /etc/systemd/system/iscsi-auto-login.service
 
-sh /tmp/CENTOS7_OS_POST_BUILD/env.sh
-sudo sed -i "s/^\(InitiatorName=\).*/\1${new_initiator_name}/" /etc/iscsi/initiatorname.iscsi
+
 
 sudo systemctl daemon-reload
 sudo systemctl enable iscsi-auto-login.service
