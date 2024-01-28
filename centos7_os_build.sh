@@ -44,6 +44,9 @@ echo "=========================================================="
 sudo sh /tmp/CENTOS7_OS_POST_BUILD/iscsi_lun_discover_login.sh
 sudo cp /tmp/CENTOS7_OS_POST_BUILD/iscsi-auto-login.service  /etc/systemd/system/iscsi-auto-login.service
 
+sh /tmp/CENTOS7_OS_POST_BUILD/env.sh
+sudo sed -i "s/^\(InitiatorName=\).*/\1${new_initiator_name}/" /etc/iscsi/initiatorname.iscsi
+
 sudo systemctl daemon-reload
 sudo systemctl enable iscsi-auto-login.service
 
