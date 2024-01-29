@@ -21,3 +21,6 @@ done
 
 # Reload or restart the multipath service to apply changes
 systemctl restart multipathd
+
+
+echo "multipath configuration completed" 
