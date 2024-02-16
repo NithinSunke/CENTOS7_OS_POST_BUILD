@@ -39,8 +39,8 @@ sudo sh /tmp/CENTOS7_OS_POST_BUILD/configure_hostname.sh
 
 sh /tmp/CENTOS7_OS_POST_BUILD/env.sh
 
-echo "echo "InitiatorName=iqn.1994-05.com.scs:sddoc01" > /etc/iscsi/initiatorname.iscsi"
-echo "InitiatorName=iqn.1994-05.com.scs:sddoc01" > /etc/iscsi/initiatorname.iscsi
+echo "echo "InitiatorName=iqn.1994-05.com.scs:`hostname`" > /etc/iscsi/initiatorname.iscsi"
+echo "InitiatorName=iqn.1994-05.com.scs:`hostname`" > /etc/iscsi/initiatorname.iscsi
 
 echo "=========================================================="
 echo "server build  ${HOSTNAME}.${DOMAIN_NAME} is completed"
